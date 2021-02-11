@@ -59,4 +59,5 @@ for p in projects:
     # Create static lib project(s)
     subprocess.call([RUBY, RUBY_SCRIPT, project, p[SEARCH_STRING]])
     # Compile the project
-    subprocess.call([XCODEBUILDER, XCODEPROJECT, project, XCODETARGET, p[TARGET]])
+    #subprocess.call([XCODEBUILDER, XCODEPROJECT, project, XCODETARGET, p[TARGET]])
+    subprocess.call([XCODEBUILDER, "-UseModernBuildSystem=NO", XCODEPROJECT, project, XCODETARGET, p[TARGET]])

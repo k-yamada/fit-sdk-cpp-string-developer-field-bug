@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280C06A025D53EE1008A52C8 /* NSString+toWString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 280C069F25D53EE1008A52C8 /* NSString+toWString.mm */; };
 		90B4EF261CD3B3320047D372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B4EF251CD3B3320047D372 /* main.m */; };
 		90B4EF291CD3B3320047D372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B4EF281CD3B3320047D372 /* AppDelegate.m */; };
 		90B4EF2C1CD3B3320047D372 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90B4EF2B1CD3B3320047D372 /* ViewController.mm */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		280C069E25D53EE1008A52C8 /* NSString+toWString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+toWString.h"; sourceTree = "<group>"; };
+		280C069F25D53EE1008A52C8 /* NSString+toWString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSString+toWString.mm"; sourceTree = "<group>"; };
 		90B4EF211CD3B3320047D372 /* exampleios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exampleios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B4EF251CD3B3320047D372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90B4EF271CD3B3320047D372 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,6 +77,8 @@
 		90B4EF231CD3B3320047D372 /* exampleios */ = {
 			isa = PBXGroup;
 			children = (
+				280C069E25D53EE1008A52C8 /* NSString+toWString.h */,
+				280C069F25D53EE1008A52C8 /* NSString+toWString.mm */,
 				90B4EF3D1CD3B4D30047D372 /* ActivityExample.h */,
 				90B4EF3E1CD3B4D30047D372 /* ActivityExample.mm */,
 				90B4EF3F1CD3B4D30047D372 /* Example.h */,
@@ -141,6 +146,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -173,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90B4EF2C1CD3B3320047D372 /* ViewController.mm in Sources */,
+				280C06A025D53EE1008A52C8 /* NSString+toWString.mm in Sources */,
 				90B4EF481CD3B4D30047D372 /* SettingsExample.mm in Sources */,
 				90B4EF461CD3B4D30047D372 /* Example.mm in Sources */,
 				90B4EF471CD3B4D30047D372 /* MonitoringExample.mm in Sources */,

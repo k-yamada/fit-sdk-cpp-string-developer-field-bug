@@ -208,7 +208,7 @@
 				PRODUCT_NAME = FitSdkCpp;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = " x86_64";
 			};
 			name = Debug;
 		};
@@ -221,7 +221,7 @@
 				PRODUCT_NAME = FitSdkCpp;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = " x86_64";
 			};
 			name = Release;
 		};

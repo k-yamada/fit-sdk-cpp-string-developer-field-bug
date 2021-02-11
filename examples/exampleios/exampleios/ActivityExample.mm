@@ -12,6 +12,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ActivityExample.h"
+#import "NSString+toWString.h"
 
 #include <list>
 #include "fit_file_id_mesg.hpp"
@@ -112,14 +113,8 @@ public:
         return -1;
     }
 
-    fit::FileIdMesg fileId; // Every FIT file requires a File ID message
-    fileId.SetType(FIT_FILE_ACTIVITY);
-    fileId.SetManufacturer(FIT_MANUFACTURER_DEVELOPMENT);
-    fileId.SetProduct(1);
-    fileId.SetSerialNumber(12345);
-
     fit::DeveloperDataIdMesg devId;
-    for (FIT_UINT8 i = 0; i < 16; i++)
+    for (FIT_UINT8 i = 0; i < 4; i++)
     {
         devId.SetApplicationId(i, i);
     }
@@ -128,30 +123,24 @@ public:
     fit::FieldDescriptionMesg fieldDesc;
     fieldDesc.SetDeveloperDataIndex(0);
     fieldDesc.SetFieldDefinitionNumber(0);
-    fieldDesc.SetFitBaseTypeId(FIT_BASE_TYPE_SINT8);
-    fieldDesc.SetFieldName(0, L"doughnuts_earned");
-    fieldDesc.SetUnits(0, L"doughnuts");
+    fieldDesc.SetFitBaseTypeId(FIT_BASE_TYPE_STRING);
+    fieldDesc.SetFieldName(0, L"str_dev_field");
 
-    for (FIT_UINT8 i = 0; i < 3; i++)
-    {
-        fit::RecordMesg newRecord;
-        fit::DeveloperField doughnutsEarnedField(fieldDesc, devId);
-        newRecord.SetHeartRate(140 + (i * 2));
-        newRecord.SetCadence(88 + (i * 2));
-        newRecord.SetDistance(510 + (i * 100.0f));
-        newRecord.SetSpeed(2.8f + (i * 0.4f));
-        doughnutsEarnedField.AddValue(i + 1);
-
-        newRecord.AddDeveloperField(doughnutsEarnedField);
-
-        records.push_back(newRecord);
+    for (FIT_UINT8 i = 0; i < 2; i++) {
+        fit::DeviceInfoMesg newDeviceInfo;
+        fit::DeveloperField strDevField(fieldDesc, devId);
+        if (i == 0) {
+            strDevField.SetSTRINGValue(@"a".toWString);
+        } else {
+            strDevField.SetSTRINGValue(@"aa".toWString);
+        }
+        newDeviceInfo.AddDeveloperField(strDevField);
+        records.push_back(newDeviceInfo);
     }
 
     [super.fe Open:file];
-    [super.fe WriteMesg:fileId];
     [super.fe WriteMesg:devId];
     [super.fe WriteMesg:fieldDesc];
-
     for (auto record : records)
     {
         [super.fe WriteMesg:record];

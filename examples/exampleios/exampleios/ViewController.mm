@@ -27,12 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    SettingsExample *se = [[SettingsExample alloc] init];
-    [se encode];
-    [se decode];
-    MonitoringExample *me = [[MonitoringExample alloc] init];
-    [me encode];
-    [me decode];
+//    SettingsExample *se = [[SettingsExample alloc] init];
+//    [se encode];
+//    [se decode];
+//    MonitoringExample *me = [[MonitoringExample alloc] init];
+//    [me encode];
+//    [me decode];
+    NSLog(@"homeDir: %@", NSHomeDirectory());
     ActivityExample *ae = [[ActivityExample alloc] init];
     [ae encode];
     [ae decode];
