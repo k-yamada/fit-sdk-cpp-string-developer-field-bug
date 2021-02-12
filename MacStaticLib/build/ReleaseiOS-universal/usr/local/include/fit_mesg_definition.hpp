@@ -56,6 +56,7 @@ public:
     FIT_BOOL operator!=(const MesgDefinition& mesgDef) const;
     FIT_BOOL Supports(const Mesg& mesg) const;
     FIT_BOOL Supports(const MesgDefinition& mesgDef) const;
+    const DeveloperFieldDefinition* GetDevField(const FIT_UINT8 developerIndex, const FIT_UINT8 num) const;
     int Write(std::ostream &file) const;
 
 private:
