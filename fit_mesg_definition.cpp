@@ -212,8 +212,37 @@ FIT_BOOL MesgDefinition::Supports(const MesgDefinition& mesgDef) const
             return FIT_FALSE;
     }
 
+    //region Workaround
+    // Check to make sure that all field developer fields are defined
+    for (int i=0; i<(int)mesgDef.devFields.size(); i++)
+    {
+        const DeveloperFieldDefinition fieldDef = mesgDef.devFields[i];
+        const DeveloperFieldDefinition* supportedDef = GetDevField(fieldDef.GetDeveloperDataIndex(), fieldDef.GetNum());
+
+        // There is a Field Definition that we don't have a description for
+        if (supportedDef == FIT_NULL)
+            return FIT_FALSE;
+
+        // The definition is a larger size that we dont support
+        if (fieldDef.GetSize() > supportedDef->GetSize())
+            return FIT_FALSE;
+    }
+    //endregion
+
     return FIT_TRUE;
 }
+
+//region Workaround
+const DeveloperFieldDefinition* MesgDefinition::GetDevField(const FIT_UINT8 developerIndex, const FIT_UINT8 num) const
+{
+    for (int i=0; i<(int)devFields.size(); i++)
+    {
+        if (devFields[i].GetNum() == num && devFields[i].GetDeveloperDataIndex() == developerIndex)
+            return &(devFields[i]);
+    }
+    return FIT_NULL;
+}
+//endregion
 
 int MesgDefinition::Write(std::ostream &file) const
 {
